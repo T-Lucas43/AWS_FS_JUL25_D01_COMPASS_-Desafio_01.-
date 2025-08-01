@@ -1,0 +1,60 @@
+{
+    "data": [
+      {
+        "id": 1,
+        "name": "Salad",
+        "imageUrl": "https://img.freepik.com/fotos-gratis/vista-superior-saborosa-salada-com-legumes_23-2148515491.jpg",
+        "rating": 5.9,
+        "reviews": 110,
+        "description": "Made with juicy beef burger, cheese...",
+        "originalPrice": 12.0,
+        "discountPercent": 30,
+        "discountedPrice": 8.5
+      },
+      {
+        "id": 2,
+        "name": "Burger",
+        "imageUrl": "https://img.freepik.com/fotos-gratis/hamburguer-de-vista-frontal-em-um-carrinho_141793-15542.jpg",
+        "rating": 7.5,
+        "reviews": 54,
+        "description": "Made with juicy beef burger, cheese...",
+        "originalPrice": 10.70,
+        "discountPercent": 10,
+        "discountedPrice": 9.5
+      },
+      {
+        "id": 3,
+        "name": "Potato",
+        "imageUrl": "https://img.freepik.com/fotos-gratis/batatas-fritas-e-ketchup_23-2151985479.jpg",
+        "rating": 5.7,
+        "reviews": 100,
+        "description": "Made with juicy beef burger, cheese...",
+        "originalPrice": 9.40,
+        "discountPercent": 15,
+        "discountedPrice": 7.2
+      },
+      {
+        "id": 4,
+        "name": "Potato",
+        "imageUrl": "https://img.freepik.com/fotos-gratis/batatas-fritas-deliciosas-no-estudio_23-2151846533.jpg",
+        "rating": 4.8,
+        "reviews": 80,
+        "description": "Made with juicy beef burger, cheese...",
+        "originalPrice": 8.50,
+        "discountPercent": 10,
+        "discountedPrice": 7.5
+      },
+      {
+        "id": 5,
+        "name": "Salad",
+        "imageUrl": "https://img.freepik.com/fotos-gratis/salada-cesar-com-camaroes-fritos_140725-6065.jpg",
+        "rating": 7.8,
+        "reviews": 230,
+        "description": "Made with juicy beef burger, cheese...",
+        "originalPrice": 10.0,
+        "discountPercent": 15,
+        "discountedPrice": 8.5
+      }
+    ]
+  }
+  

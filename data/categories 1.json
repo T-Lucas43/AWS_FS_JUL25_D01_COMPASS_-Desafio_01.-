@@ -1,0 +1,33 @@
+{
+    "data": [
+      {
+        "id": 1,
+        "imageUrl": "https://img.freepik.com/fotos-gratis/vista-superior-saborosa-salada-com-legumes_23-2148515491.jpg",
+        "priceFrom": 8,
+        "currency": "$",
+        "category": "salads"
+      },
+      {
+        "id": 2,
+        "imageUrl": "https://img.freepik.com/fotos-gratis/uma-fatia-de-pizza-crocante-com-carne-e-queijo_140725-6974.jpg",
+        "priceFrom": 18,
+        "currency": "$",
+        "category": "pizza"
+      },
+      {
+        "id": 3,
+        "imageUrl": "https://img.freepik.com/fotos-gratis/hamburguer-de-vista-frontal-em-um-carrinho_141793-15542.jpg",
+        "priceFrom": 12,
+        "currency": "$",
+        "category": "burger"
+      },
+      {
+        "id": 4,
+        "imageUrl": "https://img.freepik.com/fotos-gratis/mistura-de-alto-angulo-de-bebidas-alcoolicas_23-2148673763.jpg",
+        "priceFrom": 4,
+        "currency": "$",
+        "category": "drinks"
+      }
+    ]
+  }
+  
