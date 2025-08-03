@@ -1,5 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // === EMAIL SUBSCRIPTION ===
+  const showSpinnerInside = (container) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "spinner-wrapper";
+    wrapper.innerHTML = `<div class="spinner"></div>`;
+    container.appendChild(wrapper);
+  };
+
+  const removeSpinnerInside = (container) => {
+    const spinner = container.querySelector(".spinner-wrapper");
+    if (spinner) container.removeChild(spinner);
+  };
+
+ 
   const emailInput = document.getElementById("email");
   const subscribeBtn = document.getElementById("subscribe-btn");
   const cancelBtn = document.getElementById("cancel-btn");
@@ -44,18 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
     message.style.color = color;
   }
 
-  // === FAQ TOGGLE WITH ARROW ANIMATION ===
+  
   const questions = document.querySelectorAll(".faq-question");
   questions.forEach((btn) => {
     btn.addEventListener("click", () => {
       const answer = btn.nextElementSibling;
       const isOpen = btn.classList.contains("open");
 
-      // Fecha todos os outros
       document.querySelectorAll(".faq-question").forEach((q) => q.classList.remove("open"));
       document.querySelectorAll(".faq-answer").forEach((a) => (a.style.display = "none"));
 
-      // Abre o clicado se estava fechado
       if (!isOpen) {
         btn.classList.add("open");
         answer.style.display = "block";
@@ -63,11 +73,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // === MENU CATEGORIES (data/categories 1.json) ===
+  
+  const categoryList = document.getElementById("category-list");
+  showSpinnerInside(categoryList);
+
   fetch("data/categories 1.json")
     .then((res) => res.json())
     .then((json) => {
-      const categoryList = document.getElementById("category-list");
       json.data.forEach((cat) => {
         const div = document.createElement("div");
         div.className = "card category-card";
@@ -83,13 +95,16 @@ document.addEventListener("DOMContentLoaded", () => {
         categoryList.appendChild(div);
       });
     })
-    .catch((err) => console.error("Failed to load categories", err));
+    .catch((err) => console.error("Failed to load categories", err))
+    .finally(() => removeSpinnerInside(categoryList));
 
-  // === PRODUCT SUGGESTIONS (data/products 1.json) ===
+ 
+  const suggestList = document.getElementById("suggest-list");
+  showSpinnerInside(suggestList);
+
   fetch("data/products 1.json")
     .then((res) => res.json())
     .then((json) => {
-      const suggestList = document.getElementById("suggest-list");
       json.data.forEach((item) => {
         const card = document.createElement("div");
         card.className = "card product-card";
@@ -109,9 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
         suggestList.appendChild(card);
       });
     })
-    .catch((err) => console.error("Failed to load products", err));
+    .catch((err) => console.error("Failed to load products", err))
+    .finally(() => removeSpinnerInside(suggestList));
 
-  // === MOBILE MENU TOGGLE ===
+  
   const mobileIcon = document.getElementById("mobile-menu-icon");
   const mobileNav = document.getElementById("mobile-nav");
 
