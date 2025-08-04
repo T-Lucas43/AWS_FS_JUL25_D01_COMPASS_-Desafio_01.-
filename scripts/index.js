@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
     message.style.color = color;
   }
 
-  
   const questions = document.querySelectorAll(".faq-question");
   questions.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -73,46 +72,70 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  
   const categoryList = document.getElementById("category-list");
   showSpinnerInside(categoryList);
+
+  function renderCategoryCard(cat, imageUrl) {
+    const div = document.createElement("div");
+    div.className = "card category-card";
+    div.innerHTML = `
+      <div class="category-image" style="background-image: url('${imageUrl}')">
+        <div class="category-overlay">
+          <h4>${cat.category.toUpperCase()}</h4>
+          <p>From <strong>${cat.currency}${cat.priceFrom}</strong></p>
+          <button>Order Now</button>
+        </div>
+      </div>
+    `;
+    categoryList.appendChild(div);
+  }
 
   fetch("data/categories 1.json")
     .then((res) => res.json())
     .then((json) => {
-      categoryList.innerHTML = ""; 
-      json.data.forEach((cat) => {
-        const div = document.createElement("div");
-        div.className = "card category-card";
-        div.innerHTML = `
-          <div class="category-image" style="background-image: url('${cat.imageUrl}')">
-            <div class="category-overlay">
-              <h4>${cat.category.toUpperCase()}</h4>
-              <p>From <strong>${cat.currency}${cat.priceFrom}</strong></p>
-              <button>Order Now</button>
-            </div>
-          </div>
-        `;
-        categoryList.appendChild(div);
-      });
-    })
-    .catch((err) => console.error("Failed to load categories", err))
-    .finally(() => removeSpinnerInside(categoryList));
+      categoryList.innerHTML = "";
 
-  
+      let loadedCount = 0;
+      const totalCategories = json.data.length;
+
+      json.data.forEach((cat) => {
+        const testImage = new Image();
+
+        testImage.onload = () => {
+          renderCategoryCard(cat, cat.imageUrl);
+          loadedCount++;
+          if (loadedCount === totalCategories) removeSpinnerInside(categoryList);
+        };
+
+        testImage.onerror = () => {
+          renderCategoryCard(cat, "assets/default-category.jpg");
+          loadedCount++;
+          if (loadedCount === totalCategories) removeSpinnerInside(categoryList);
+        };
+
+        testImage.src = cat.imageUrl;
+      });
+
+      if (totalCategories === 0) removeSpinnerInside(categoryList);
+    })
+    .catch((err) => {
+      console.error("Failed to load categories", err);
+      removeSpinnerInside(categoryList);
+    });
+
   const suggestList = document.getElementById("suggest-list");
   showSpinnerInside(suggestList);
 
   fetch("data/products 1.json")
     .then((res) => res.json())
     .then((json) => {
-      suggestList.innerHTML = ""; 
+      suggestList.innerHTML = "";
       json.data.forEach((item) => {
         const card = document.createElement("div");
         card.className = "card product-card";
         card.innerHTML = `
           <div class="discount-badge">-${item.discountPercent}%</div>
-          <img src="${item.imageUrl}" alt="${item.name}" />
+          <img src="${item.imageUrl}" alt="${item.name}" onerror="this.src='assets/default-product.jpg'" />
           <div class="card-body">
             <div class="rating">⭐ ${item.rating} | ${item.reviews} reviews</div>
             <h4>${item.name}</h4>
@@ -129,7 +152,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((err) => console.error("Failed to load products", err))
     .finally(() => removeSpinnerInside(suggestList));
 
-  
   const mobileIcon = document.getElementById("mobile-menu-icon");
   const mobileNav = document.getElementById("mobile-nav");
 
