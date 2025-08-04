@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const showSpinnerInside = (container) => {
+    container.innerHTML = ""; 
     const wrapper = document.createElement("div");
     wrapper.className = "spinner-wrapper";
     wrapper.innerHTML = `<div class="spinner"></div>`;
@@ -11,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (spinner) container.removeChild(spinner);
   };
 
- 
   const emailInput = document.getElementById("email");
   const subscribeBtn = document.getElementById("subscribe-btn");
   const cancelBtn = document.getElementById("cancel-btn");
@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("data/categories 1.json")
     .then((res) => res.json())
     .then((json) => {
+      categoryList.innerHTML = ""; 
       json.data.forEach((cat) => {
         const div = document.createElement("div");
         div.className = "card category-card";
@@ -98,13 +99,14 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((err) => console.error("Failed to load categories", err))
     .finally(() => removeSpinnerInside(categoryList));
 
- 
+  
   const suggestList = document.getElementById("suggest-list");
   showSpinnerInside(suggestList);
 
   fetch("data/products 1.json")
     .then((res) => res.json())
     .then((json) => {
+      suggestList.innerHTML = ""; 
       json.data.forEach((item) => {
         const card = document.createElement("div");
         card.className = "card product-card";
