@@ -155,9 +155,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileIcon = document.getElementById("mobile-menu-icon");
   const mobileNav = document.getElementById("mobile-nav");
 
-  if (mobileIcon && mobileNav) {
-    mobileIcon.addEventListener("click", () => {
-      mobileNav.style.display = mobileNav.style.display === "flex" ? "none" : "flex";
+  
+if (mobileIcon && mobileNav) {
+  mobileIcon.addEventListener("click", () => {
+    mobileNav.style.display = mobileNav.style.display === "flex" ? "none" : "flex";
+  });
+
+  const navLinks = mobileNav.querySelectorAll("a[href^='#']");
+  navLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href").substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      mobileNav.style.display = "none";
     });
-  }
+  });
+}
 });
