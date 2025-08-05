@@ -94,6 +94,7 @@ Then open your browser and go to:
 📁 Project Structure
 ```bash
 ├── index.html
+├── /assets
 ├── /styles
 │   └── style.css
 ├── /scripts
