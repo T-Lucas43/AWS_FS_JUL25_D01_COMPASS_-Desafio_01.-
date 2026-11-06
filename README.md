@@ -1,3 +1,9 @@
+<p align="center"><img src=".github/assets/banner.svg" alt="Compass · Desafio 01" width="100%" /></p>
+
+<p align="center"><a href="https://github.com/T-Lucas43">Perfil</a> · <a href="https://github.com/T-Lucas43?tab=repositories">Mais projetos</a> · <a href="https://www.linkedin.com/in/tarcisio-lucas-io">LinkedIn</a></p>
+
+---
+
 # 🚀 AWS_FS_JUL25_D01_COMPASS_-Challenge_01-
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
@@ -58,11 +64,11 @@ The project includes building a fully responsive interface, matching the origina
 
 # 1. Clone this repository
 ```bash
-git clone https://github.com/your-username/AWS_FS_JUL25_D01_COMPASS_-Challenge_01-.git
+git clone https://github.com/T-Lucas43/AWS_FS_JUL25_D01_COMPASS_-Desafio_01.-.git
 ```
 # 2. Navigate to the project folder
 ```bash
-cd AWS_FS_JUL25_D01_COMPASS_-Challenge_01-
+cd AWS_FS_JUL25_D01_COMPASS_-Desafio_01.-
 ```
 ▶️ Running with Live Server
 Open the project in VS Code:
